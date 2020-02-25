@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-client-demo
+  namespace: devconnector
+  labels:
+    app: my-client
+spec:
+  containers:
+  - name: my-client
+    image: quay.io/vinamra2807/social-client:3
+    env:
+    - name: REACT_APP_BASE_URL
+      # value: "http://192.168.39.15:32689"
+      value: "http://192.168.130.11:32024"

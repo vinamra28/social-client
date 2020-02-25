@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-client
+  namespace: devconnector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: my-client
+  template:
+    metadata:
+      labels:
+        run: my-client
+    spec:
+      containers:
+      - name: my-client
+        image: quay.io/vinamra2807/social-client:3
+        ports:
+          - containerPort: 3000
+        env:
+        - name: REACT_APP_BASE_URL
+        # value: "http://192.168.39.15:32689"
+          value: "http://192.168.39.15:32504"
