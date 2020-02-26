@@ -15,7 +15,7 @@ import {
 // Get current users profile
 export const getCurrentProfile = () => async dispatch => {
   try {
-    const res = await axios.get('/api/profile/me');
+    const res = await axios.get(process.env.REACT_APP_BASE_URL+'/api/profile/me');
 
     dispatch({
       type: GET_PROFILE,
@@ -209,7 +209,7 @@ export const deleteExperience = id => async dispatch => {
 // Delete education
 export const deleteEducation = id => async dispatch => {
   try {
-    const res = await axios.delete(`/api/profile/education/${id}`);
+    const res = await axios.delete(process.env.REACT_APP_BASE_URL+`/api/profile/education/${id}`);
 
     dispatch({
       type: UPDATE_PROFILE,
@@ -229,7 +229,7 @@ export const deleteEducation = id => async dispatch => {
 export const deleteAccount = () => async dispatch => {
   if (window.confirm('Are you sure? This can NOT be undone!')) {
     try {
-      await axios.delete('/api/profile');
+      await axios.delete(process.env.REACT_APP_BASE_URL+'/api/profile');
 
       dispatch({ type: CLEAR_PROFILE });
       dispatch({ type: ACCOUNT_DELETED });
