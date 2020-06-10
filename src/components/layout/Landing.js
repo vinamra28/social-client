@@ -16,7 +16,7 @@ const Landing = ({ isAuthenticated }) => {
           <p className='lead'>
             Create a developer profile/portfolio, share posts and get help from
             other developers
-          </p> */}
+          </p>
           <div className='buttons'>
             <Link to='/register' className='btn btn-primary'>
               Sign Up
@@ -24,7 +24,7 @@ const Landing = ({ isAuthenticated }) => {
             <Link to='/login' className='btn btn-light'>
               Login
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
