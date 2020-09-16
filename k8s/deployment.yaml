@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-client-v2
+  name: my-client-v1
   labels:
-    app: my-client-v2
+    app: my-client-v1
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: my-client
-      version: v2
+      version: v1
   template:
     metadata:
       labels:
         app: my-client
-        version: v2
+        version: v1
     spec:
       containers:
-        - name: my-client-v2
-          image: quay.io/vinamra2807/social-client:v2
+        - name: my-client
+          image: quay.io/vinamra2807/social-client:v1
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
