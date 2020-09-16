@@ -1,0 +1,28 @@
+name: Add Labels
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  issues:
+    types: [opened]
+
+jobs:
+  add_labels:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-ecosystem/action-add-labels@v1.1.0
+        if: ${{ startsWith(github.event.comment.body, '/documentation') }}
+        with:
+          github_token: ${{ secrets.token }}
+          labels: documentation
+      # - uses: actions-ecosystem/action-add-labels@v1.1.0
+      #   if: ${{ startsWith(github.event.comment.body, '/bug') }}
+      #   with:
+      #     github_token: ${{ secrets.token }}
+      #     labels: bug
+      # - uses: actions-ecosystem/action-add-labels@v1.1.0
+      #   if: ${{ startsWith(github.event.comment.body, '/feature') }}
+      #   with:
+      #     github_token: ${{ secrets.token }}
+      #     labels: feature
