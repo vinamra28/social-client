@@ -9,5 +9,5 @@ spec:
     targetPort: client-tcp
   to:
     kind: Service
-    name: my-client
+    name: my-client-v1
     weight: 100
