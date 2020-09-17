@@ -451,7 +451,7 @@
         },
         {
           "type": "descriptionMatches",
-          "pattern": "/(created|new|opened|made)( an| a)? bug/i"
+          "pattern": "/(created|new|opened|made)( an| a)? bug\n/i"
         }
       ]
     },
