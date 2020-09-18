@@ -27,6 +27,23 @@
 #       #     github_token: ${{ secrets.token }}
 #       #     labels: feature
 
+# on:
+# issues:
+#   types: [opened, edited, closed, reopened]
+# pull_request:
+#   types: [opened, edited, closed, reopened, ready_for_review, synchronize]
+
+# jobs:
+#   labeller_test:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#       - name: Add labels
+#         id: labeller
+#         uses: Videndum/super-labeler-action@v1.0.0
+#         with:
+#           GITHUB_TOKEN: ${{ secrets.token }}
+name: Labeler
 on:
   issues:
     types: [opened, edited, closed, reopened]
@@ -34,12 +51,11 @@ on:
     types: [opened, edited, closed, reopened, ready_for_review, synchronize]
 
 jobs:
-  labeller_test:
+  label:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Add labels
-        id: labeller
-        uses: Videndum/super-labeler-action@v1.0.0
+      - uses: actions/labeler@v2
         with:
-          GITHUB_TOKEN: ${{ secrets.token }}
+          repo-token: "${{ secrets.token }}"
+          sync-labels: true
